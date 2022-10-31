@@ -18,3 +18,8 @@ jobs:
         run: |
           mvn -B package
           mvn -B -Pnative -DskipTests native:compile
+      - name: Run application
+        run: |
+          ./target/spring-boot-native-test &
+          sleep 30
+          killall java
