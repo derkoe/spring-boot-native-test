@@ -14,6 +14,7 @@ jobs:
           version: "latest"
           java-version: "17"
           components: "native-image"
-      - name: Example step
+      - name: Build
         run: |
-          mvn -v
+          mvn -B package
+          mvn -B -Pnative -DskipTests native:compile
