@@ -1,0 +1,19 @@
+name: Verify
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: "latest"
+          java-version: "17"
+          components: "native-image"
+      - name: Example step
+        run: |
+          mvn -v
