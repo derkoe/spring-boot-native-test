@@ -131,9 +131,9 @@ public class LiquibaseNativeHints implements RuntimeHintsRegistrar {
         hints.reflection().registerType(liquibase.serializer.AbstractLiquibaseSerializable.class,
                 MemberCategory.DECLARED_FIELDS);
 
-        hints.resources().registerPattern("^liquibase.build.properties$");
-        hints.resources().registerPattern("^www.liquibase.org/xml/ns/dbchangelog/.*xsd$");
-        hints.resources().registerPattern("^db/changelog/.*$");
+        hints.resources().registerPattern("liquibase.build.properties");
+        hints.resources().registerPattern("www.liquibase.org/xml/ns/dbchangelog/*.xsd");
+        hints.resources().registerPattern("db/changelog/*");
     }
 
     private static <T> void registerConstructor(RuntimeHints hints, Class<T> clazz) {
