@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: "2022-01"
+      author: derkoe
+      changes:
+        - createTable:
+            tableName: todos
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: todos_pkey
+                  name: id
+                  type: uuid
+              - column:
+                  name: title
+                  type: VARCHAR
+              - column:
+                  name: done
+                  type: BOOLEAN
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
