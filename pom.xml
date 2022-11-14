@@ -5,8 +5,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-RC1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.0.0-RC2</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.derkoe.tests</groupId>
 	<artifactId>spring-boot-native-test</artifactId>
@@ -59,6 +59,23 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>docker.porscheinformatik.com/koc/${project.artifactId}:${project.version}</name>
+						<builder>docker.porscheinformatik.com/eenv/paketo-buildpacks/builder:base</builder>
+						<runImage>docker.porscheinformatik.com/eenv/paketo-buildpacks/run</runImage>
+						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+						<env>
+							<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--verbose</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+						</env>
+						<!-- <bindings>
+							<binding>${project.basedir}/src/main/bindings/ca-certs:/platform/bindings/ca-certs</binding>
+						</bindings> -->
+					</image>
+					<docker>
+						<bindHostToBuilder>true</bindHostToBuilder>
+					</docker>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
