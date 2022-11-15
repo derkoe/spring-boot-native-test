@@ -8,13 +8,13 @@ import org.springframework.lang.Nullable;
 
 public class LiquibaseNativeHints implements RuntimeHintsRegistrar {
 
-    @Override
-    public void registerHints(RuntimeHints hints, @Nullable ClassLoader classLoader) {
-        registerConstructor(hints, liquibase.sql.visitor.AppendSqlVisitor.class);
-        registerConstructor(hints, liquibase.sql.visitor.PrependSqlVisitor.class);
-        registerConstructor(hints, liquibase.sql.visitor.RegExpReplaceSqlVisitor.class);
-        registerConstructor(hints, liquibase.sql.visitor.ReplaceSqlVisitor.class);
+  @Override
+  public void registerHints(RuntimeHints hints, @Nullable ClassLoader classLoader) {
+    registerConstructor(hints, liquibase.sql.visitor.AppendSqlVisitor.class);
+    registerConstructor(hints, liquibase.sql.visitor.PrependSqlVisitor.class);
+    registerConstructor(hints, liquibase.sql.visitor.RegExpReplaceSqlVisitor.class);
+    registerConstructor(hints, liquibase.sql.visitor.ReplaceSqlVisitor.class);
 
-        hints.resources().registerPattern("db/changelog/*");
-    }
+    hints.resources().registerPattern("db/changelog/*");
+  }
 }
