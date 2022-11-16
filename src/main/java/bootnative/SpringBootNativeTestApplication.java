@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportRuntimeHints;
 
 @SpringBootApplication
-@ImportRuntimeHints({ HibernateNativeHints.class })
+@ImportRuntimeHints({ LiquibaseNativeHints.class, HibernateNativeHints.class })
 public class SpringBootNativeTestApplication {
 
 	public static void main(String[] args) {
